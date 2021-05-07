@@ -1,0 +1,10 @@
+{
+  "watch": [
+    "src",
+    "../contract"
+  ],
+  "ext": ".ts,.js",
+  "ignore": [],
+  "exec": "ts-node ./src/index.ts"
+}
+  

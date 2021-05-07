@@ -1,0 +1,29 @@
+{
+  "name": "itsybitsy",
+  "version": "1.0.0",
+  "description": "The creepy crawler's companion",
+  "main": "index.js",
+  "scripts": {
+    "start": "npm-run-all --parallel --print-label --print-name start-server start-client start-chrome",
+    "start-client": "(cd itsy-client && npm run serve)",
+    "start-server": "(cd bitsy-server && npm run start-server)",
+    "start-chrome": "npx ts-node run-chrome.ts",
+    "postinstall": "npm-run-all --serial --print-label --print-name link-contracts install-both",
+    "link-contracts": "npm-run-all --parallel --print-label --print-name link-contracts-client link-contracts-server",
+    "link-contracts-client": "symlink-dir contract ./itsy-client/src/contract",
+    "link-contracts-server": "symlink-dir contract ./bitsy-server/src/contract",
+    "install-both": "npm-run-all --parallel --print-label --print-name install-client install-server",
+    "install-client": "cd itsy-client && npm install",
+    "install-server": "cd bitsy-server && npm install"
+  },
+  "author": "Pider, S",
+  "license": "ISC",
+  "devDependencies": {
+    "chromium": "^3.0.2",
+    "npm-run-all": "^4.1.5",
+    "symlink-dir": "^4.1.0",
+    "ts-node": "^9.1.1",
+    "typescript": "^4.1.3"
+  },
+  "dependencies": {}
+}
